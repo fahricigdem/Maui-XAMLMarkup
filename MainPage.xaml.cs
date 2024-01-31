@@ -1,25 +1,41 @@
-﻿namespace XAMLMarkup
+﻿using System.Diagnostics;
+
+namespace XAMLMarkup
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
+        Button loginButton;
+        VerticalStackLayout layout;
         public MainPage()
         {
-            InitializeComponent();
+            this.BackgroundColor = Color.FromArgb("512bdf");
+
+            layout = new VerticalStackLayout
+            {
+                Margin = new Thickness(15, 15, 15, 15),
+                Padding = new Thickness(30, 60, 30, 30),
+                Children =
+            {
+                new Label { Text = "Please log in", FontSize = 30, TextColor = Color.FromRgb(255, 255, 100) },
+                new Label { Text = "Username", TextColor = Color.FromRgb(255, 255, 255) },
+                new Entry (),
+                new Label { Text = "Password", TextColor = Color.FromRgb(255, 255, 255) },
+                new Entry { IsPassword = true }
+            }
+            };
+
+            loginButton = new Button { Text = "Login", BackgroundColor = Color.FromRgb(0, 148, 255) };
+            layout.Children.Add(loginButton);
+
+            Content = layout;
+
+            loginButton.Clicked += (sender, e) =>
+            {
+                Debug.WriteLine("Clicked !");
+            };
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+      
     }
 
 }
