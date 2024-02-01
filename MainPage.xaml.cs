@@ -14,6 +14,7 @@ namespace XAMLMarkup
             {
                 editor.Text = File.ReadAllText(_fileName);
             }
+            SaveButton.Background = DeviceInfo.Platform == DevicePlatform.WinUI ? Colors.Red : Colors.Pink;
         }
 
         private void OnSaveButtonClicked(object sender, EventArgs e)

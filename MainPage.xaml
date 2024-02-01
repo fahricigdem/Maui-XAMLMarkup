@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XAMLMarkup.MainPage">
 
-    <VerticalStackLayout Background="LightGray" Padding="50" MinimumWidthRequest="600">
+    <VerticalStackLayout MinimumWidthRequest="600" Background="{OnPlatform WinUI=LightGray, Android=Green, iOS=Silver, Default=White}">
+        <VerticalStackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="Android" Value="0"/>
+                <On Platform="WinUI" Value="60"/>
+            </OnPlatform>
+        </VerticalStackLayout.Padding>
         <Label Text="Notes" Margin="20" HorizontalOptions="Center" FontAttributes="Bold" FontSize="42"></Label>
         <Editor x:Name="editor" Background="White" AutoSize="TextChanges"></Editor>
         <Grid Padding="20">
@@ -12,8 +18,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"></Button>
-            <Button Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked"></Button>
+            <Button x:Name="SaveButton" Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"></Button>
+            <Button x:Name="DeleteButton" Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked"></Button>
         </Grid>
     </VerticalStackLayout>
     
