@@ -3,4 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XAMLMarkup.MainPage">
 
+    <VerticalStackLayout Background="LightGray" Padding="50" MinimumWidthRequest="600">
+        <Label Text="Notes" Margin="20" HorizontalOptions="Center" FontAttributes="Bold" FontSize="42"></Label>
+        <Editor x:Name="editor" Background="White" AutoSize="TextChanges"></Editor>
+        <Grid Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"></Button>
+            <Button Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked"></Button>
+        </Grid>
+    </VerticalStackLayout>
+    
 </ContentPage>
