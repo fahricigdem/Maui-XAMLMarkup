@@ -3,14 +3,4 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XAMLMarkup.MainPage">
 
-    <VerticalStackLayout Margin="0" Padding="30, 60, 30, 30" BackgroundColor = "#512bdf">
-        <Label Text="Please log in" FontSize="30" TextColor="AntiqueWhite"/>
-        <Label Text="Username" TextColor="White" />
-        <Entry />
-        <Label Text="Password" TextColor="White" />
-        <Entry IsPassword="True" />
-        <Button Text="Log in" BackgroundColor="#0094FF" Clicked="LoginButton_Clicked" />
-
-    </VerticalStackLayout>
-
 </ContentPage>
