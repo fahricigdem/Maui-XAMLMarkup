@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:notes="clr-namespace:XAMLMarkup"
              x:Class="XAMLMarkup.MainPage">
 
     <VerticalStackLayout MinimumWidthRequest="600" Background="{OnPlatform WinUI=LightGray, Android=Green, iOS=Silver, Default=White}">
@@ -11,15 +12,22 @@
             </OnPlatform>
         </VerticalStackLayout.Padding>
         <Label Text="Notes" Margin="20" HorizontalOptions="Center" FontAttributes="Bold" FontSize="42"></Label>
-        <Editor x:Name="editor" Background="White" AutoSize="TextChanges"></Editor>
+        <Editor 
+            x:Name="editor" 
+            BackgroundColor="white" 
+            TextColor="{x:Static 
+            Member=notes:SharedResources.FontColor}" 
+            AutoSize="TextChanges"
+            HeightRequest="{OnPlatform 300, Android=500, iOS=500}" 
+            />
         <Grid Padding="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="SaveButton" Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"></Button>
-            <Button x:Name="DeleteButton" Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked"></Button>
+            <Button x:Name="SaveButton" Grid.Column="0" Text="Save" Clicked="OnSaveButtonClicked"/>
+            <Button x:Name="DeleteButton" Grid.Column="2" Text="Delete" Clicked="OnDeleteButtonClicked" BackgroundColor="{x:Static Member=notes:SharedResources.BackgroundColor}"/>
         </Grid>
     </VerticalStackLayout>
     
