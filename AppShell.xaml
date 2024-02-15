@@ -6,12 +6,25 @@
     xmlns:local="clr-namespace:XAMLMarkup"
     Title="XAMLMarkup"
     Shell.NavBarIsVisible="False">
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Image Source="dotnet_bot.png" />
+        </Grid>
+    </Shell.FlyoutHeader>
 
-    <FlyoutItem Title="Notes"
-                >
+    <FlyoutItem Title="Notes">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
     </FlyoutItem>
+    <MenuItem Text="Help"
+              IconImageSource="help.png"
+              Command="{Binding HelpCommand}"
+              CommandParameter="https://learn.microsoft.com/dotnet/maui/fundamentals/shell" />
 
+    <Shell.FlyoutFooter>
+        <Grid>
+            <Image Source="dotnet_bot.png" />
+        </Grid>
+    </Shell.FlyoutFooter>
 </Shell>
